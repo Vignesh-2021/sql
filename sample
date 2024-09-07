@@ -1,0 +1,15 @@
+CREATE TABLE Employee (
+    employee_id INT PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    full_name VARCHAR(101) AS (CONCAT(first_name, ' ', last_name)) STORED
+);
+INSERT INTO Employee (first_name, last_name)
+VALUES ('John', 'Doe'),
+       ('Jane', 'Smith'),
+       ('Michael', 'Johnson');
+SELECT employee_id, first_name, last_name, full_name
+FROM Employee;
+UPDATE Employee
+SET first_name = 'Johnny', last_name = 'Doe'
+WHERE employee_id = 1;
